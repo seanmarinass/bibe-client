@@ -7,7 +7,7 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`min-h-screen w-full flex flex-col items-center`}>
+      <body className={``}>
         <Navbar />
         {children}
       </body>
