@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar/Navbar";
+import { UserContextProvider } from "@/context/UserContext";
 
 export default function HomeLayout({
   children,
@@ -8,8 +9,10 @@ export default function HomeLayout({
   return (
     <html lang="en">
       <body className={``}>
-        <Navbar />
-        {children}
+        <UserContextProvider>
+          <Navbar />
+          {children}
+        </UserContextProvider>
       </body>
     </html>
   );
