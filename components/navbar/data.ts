@@ -1,7 +1,4 @@
-type Link = {
-  path: string;
-  label: string;
-};
+import { Link } from "@/utils/types";
 
 export const NAVBAR_LINKS: Link[] = [
   {
