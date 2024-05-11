@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import Divider from "@mui/material/Divider";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
+import { GOOGLE_LOGIN_URL } from "./utils/constants";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -24,10 +25,13 @@ export default function LoginForm() {
 
       <CardContent className="sm:w-[20rem] md:w-[30rem]">
         <div className="flex flex-col gap-3">
-          <Button variant="outline" className="flex justify-between">
-            <GoogleIcon /> Login with Google
-            <span></span>
+          <Button variant="outline">
+            <a href={GOOGLE_LOGIN_URL} className="flex w-full justify-between">
+              <GoogleIcon /> Login with Google
+              <span></span>
+            </a>
           </Button>
+
           <Button variant="outline" className="flex justify-between">
             <AppleIcon /> Login with Apple
             <span></span>
