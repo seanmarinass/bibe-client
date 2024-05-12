@@ -1,12 +1,19 @@
 "use client";
 
-import { AppBar, Toolbar, IconButton, OutlinedInput } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  OutlinedInput,
+  Avatar,
+} from "@mui/material";
 import { NAVBAR_LINKS } from "./data";
 import { NavbarButton } from "./NavbarButton";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
+import { useUserContext } from "@/context/UserContext";
 
 export default function Navbar() {
+  const { avatarUrl } = useUserContext();
   const [searchBarValue, setSearchBarValue] = useState("");
   const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -16,9 +23,9 @@ export default function Navbar() {
   };
 
   return (
-    <AppBar position="sticky">
-      <Toolbar>
-        <div className="flex-grow">
+    <AppBar position="sticky" className="shadow-none">
+      <Toolbar className="bg-black">
+        <div className="flex-grow ">
           <span>Logo</span>
         </div>
 
@@ -40,7 +47,7 @@ export default function Navbar() {
           })}
 
           <IconButton color="inherit">
-            <AccountCircleIcon />
+            <Avatar alt={`Avater`} src={avatarUrl} />
           </IconButton>
         </div>
       </Toolbar>

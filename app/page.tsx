@@ -1,4 +1,3 @@
-import { Feed } from "@mui/icons-material";
 import LoginPage from "./login/page";
 
 export default function Home() {

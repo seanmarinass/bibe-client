@@ -7,8 +7,8 @@ import {
   TextField,
   IconButton,
   Modal,
+  Avatar,
 } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
 import { TodoItem } from "@/components/bibe/TodoItem";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,7 +16,7 @@ import { BibeDto, TodoDto } from "@/utils/types";
 import { useUserContext } from "@/context/UserContext";
 
 export function CreateBibe() {
-  const { user, setHasPostedDailyBibe } = useUserContext();
+  const { user, avatarUrl, setHasPostedDailyBibe } = useUserContext();
 
   const [title, setTitle] = useState("");
   const [todoDescription, setTodoDescription] = useState("");
@@ -91,7 +91,7 @@ export function CreateBibe() {
         <div className="flex flex-col w-full">
           <CardContent className="flex p-0">
             <div className="flex gap-4 w-full">
-              <AccountCircleIcon fontSize="large" />
+              <Avatar alt={`Avatar`} src={avatarUrl} />
               <TextField
                 variant="standard"
                 className="flex flex-grow"
@@ -118,7 +118,7 @@ export function CreateBibe() {
 
               <Button
                 variant="contained"
-                className="shadow-none"
+                className="shadow-none bg-black"
                 size="small"
                 onClick={handleAddTodo}
               >
@@ -141,7 +141,7 @@ export function CreateBibe() {
 
         <Button
           variant="contained"
-          className="shadow-none mt-[1rem]"
+          className="shadow-none mt-[1rem] bg-black"
           disabled={title.length < 1 || todoList.length < 1}
           onClick={handlePost}
         >

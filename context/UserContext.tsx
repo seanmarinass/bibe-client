@@ -5,20 +5,14 @@ import { User } from "@/utils/types";
 
 type UserContextProps = {
   user: User;
+  avatarUrl: string;
   hasPostedDailyBibe: boolean;
   setHasPostedDailyBibe: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type UserContextValue = UserContextProps | null;
 
-const UserContext = createContext<UserContextValue>({
-  user: {
-    userId: "fake-user-id",
-    displayName: "Sean Marinas",
-  },
-  hasPostedDailyBibe: false,
-  setHasPostedDailyBibe: () => {},
-});
+const UserContext = createContext<UserContextValue | null>(null);
 
 type UserContextProviderProps = {
   children: React.ReactNode;
@@ -32,6 +26,8 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
       userId: "fake-user-id",
       displayName: "Sean Marinas",
     },
+    avatarUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocLNCSXiCklryaqk7ILVUACkuIrKmdqsaJMWoWO42nx77VitnWg=s96-c",
     hasPostedDailyBibe: hasPostedDailyBibe,
     setHasPostedDailyBibe: setHasPostedDailyBibe,
   };
