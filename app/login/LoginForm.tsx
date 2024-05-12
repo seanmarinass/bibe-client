@@ -19,17 +19,24 @@ export default function LoginForm() {
     alert(`Password: ${password}`);
   };
 
+  const handleGoogleLogin = async (event: any) => {
+    event.preventDefault();
+    window.location.href = `${GOOGLE_LOGIN_URL}`;
+  };
+
   return (
     <Card className="flex flex-col justify-center items-center p-4 shadow-xl sm:w-[20rem] md:w-[30rem] lg:w-[40rem] xl:w-[45rem]">
       <CardHeader className="text-3xl text-center">Login to Bibe</CardHeader>
 
       <CardContent className="sm:w-[20rem] md:w-[30rem]">
         <div className="flex flex-col gap-3">
-          <Button variant="outline">
-            <a href={GOOGLE_LOGIN_URL} className="flex w-full justify-between">
-              <GoogleIcon /> Login with Google
-              <span></span>
-            </a>
+          <Button
+            variant="outline"
+            className="flex w-full justify-between"
+            onClick={handleGoogleLogin}
+          >
+            <GoogleIcon /> Login with Google
+            <span></span>
           </Button>
 
           <Button variant="outline" className="flex justify-between">
